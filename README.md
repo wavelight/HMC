@@ -1,2 +1,3 @@
-# HMC-Heeyo-Motor-Controller-
-Project for kick ass motor controller
+# HMC : Open Source Motor Controller.
+
+Software part of HMC.
