@@ -11,4 +11,4 @@ I have not tested it yet, but I am pretty sure this setup will work on other pla
 I will update about this later.
 
 Note : This source is for STM32F4-Discovery board. 
-As I said on <a href="https://heeyo.blog/2018/03/10/decided-to-hold-h-w-part-of-esc/">my blog</a>, I decided to work on software alogrithm first with discovery board and DRV development board.
+As I said on <a href="https://heeyo.blog/2018/03/10/decided-to-hold-h-w-part-of-esc/" target="_blank">my blog</a>, I decided to work on software alogrithm first with discovery board and DRV development board.
