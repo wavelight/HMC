@@ -127,6 +127,8 @@
 #define HALL_C_GPIO_Port GPIOC
 #define USEDA9_Pin GPIO_PIN_9
 #define USEDA9_GPIO_Port GPIOA
+#define USB_ID_Pin GPIO_PIN_10
+#define USB_ID_GPIO_Port GPIOA
 #define USEDC10_Pin GPIO_PIN_10
 #define USEDC10_GPIO_Port GPIOC
 #define USEDC12_Pin GPIO_PIN_12

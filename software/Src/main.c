@@ -116,12 +116,14 @@ int main(void)
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
 	MX_TIM1_Init();
-	MX_TIM3_Init();
-	MX_ADC1_Init();
-	MX_SPI2_Init();
+  	MX_TIM3_Init();
+  	MX_ADC1_Init();
+  	MX_SPI2_Init();
 	MX_USB_DEVICE_Init();
 	/* USER CODE BEGIN 2 */
 
+	char tx[64] = {0};
+	sprintf(tx, "%s", "HELLO WORLD\r");
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -132,6 +134,9 @@ int main(void)
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
+		// I can't even see the device on the portlist.
+		CDC_Transmit_FS((uint8_t *)tx, strlen(tx));
+
 		HAL_Delay(200);
 		HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
 		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
@@ -371,6 +376,9 @@ static void MX_GPIO_Init(void)
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(GPIOD, DRV_CAL_Pin | DRV_FAULT_Pin | DRV_ENABLE_Pin | DRV_LED_Pin | LED_GREEN_Pin | LED_ORANGE_Pin | LED_RED_Pin | LED_BLUE_Pin, GPIO_PIN_RESET);
 
+	/*Configure GPIO pin Output Level */
+	HAL_GPIO_WritePin(USB_ID_GPIO_Port, USB_ID_Pin, GPIO_PIN_RESET);
+
 	/*Configure GPIO pins : USED_Pin USEDE0_Pin USEDE1_Pin */
 	GPIO_InitStruct.Pin = USED_Pin | USEDE0_Pin | USEDE1_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
@@ -404,6 +412,13 @@ static void MX_GPIO_Init(void)
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+	/*Configure GPIO pin : USB_ID_Pin */
+	GPIO_InitStruct.Pin = USB_ID_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(USB_ID_GPIO_Port, &GPIO_InitStruct);
 
 	/*Configure GPIO pins : USEDD4_Pin USEDD5_Pin */
 	GPIO_InitStruct.Pin = USEDD4_Pin | USEDD5_Pin;
