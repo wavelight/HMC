@@ -124,6 +124,7 @@ int main(void)
 
 	char tx[64] = {0};
 	sprintf(tx, "%s", "HELLO WORLD\r");
+	uint32_t time = 200;
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -137,7 +138,7 @@ int main(void)
 		// I can't even see the device on the portlist.
 		CDC_Transmit_FS((uint8_t *)tx, strlen(tx));
 
-		HAL_Delay(200);
+		HAL_Delay(time);
 		HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
 		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 		HAL_GPIO_TogglePin(LED_ORANGE_GPIO_Port, LED_ORANGE_Pin);

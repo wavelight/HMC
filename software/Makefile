@@ -97,7 +97,7 @@ PERIFLIB_SOURCES =
 #######################################
 # binaries
 #######################################
-BINPATH = D:/ARM_TOOL/gcc-arm-none-eabi-7-2017-q4-major-win32/bin
+BINPATH = /home/heeyo/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/
 PREFIX = arm-none-eabi-
 CC = $(BINPATH)/$(PREFIX)gcc
 AS = $(BINPATH)/$(PREFIX)gcc -x assembler-with-cpp
