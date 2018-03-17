@@ -7,9 +7,10 @@ Compile : arm-none-eabi-gcc(makefile made by CubeMX)
 Download : ST-Link
 
 <h2>Link to project info & progress</h2>
-<br>
-<a href="https://trello.com/b/RHyaPiYc/hmc-project">Link to Trello of this project</a><br>
-<br>
-<a href="https://heeyo.blog">Link to Blog of this project</a>
-<br>
-<a href="https://discord.gg/MSctMkt">Link to Discord of this project</a>
+
+
+<ul>
+	<li><a href="https://trello.com/b/RHyaPiYc/hmc-project">Link to Trello of this project</a><br></li>
+	<li><a href="https://heeyo.blog">Link to Blog of this project</a></li>
+	<li><a href="https://discord.gg/MSctMkt">Link to Discord of this project</a></li>
+</ul>
