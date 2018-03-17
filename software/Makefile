@@ -103,7 +103,7 @@ PERIFLIB_SOURCES =
 # binaries
 #######################################
 ifeq ($(OS),Windows_NT)
-	BINPATH = D:/Tools/GNU Tools ARM Embedded/7 2017-q4-major/bin
+	BINPATH = D:/Tools/2017-q4-major/bin
 else
 	UNAME_S :=(shell uname -s)
 	ifeq ($(UNAME_S),Linux)
