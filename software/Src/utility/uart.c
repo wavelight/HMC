@@ -24,7 +24,7 @@ void uart_usb_transmit(uint8_t * tx, uint16_t len)
 // maybe put this in IRQ(interrupt) or DMA
 void uart_usb_recevie(uint8_t * rx, uint16_t len)
 {
-	// Overflow. Do we really need this? IDK.
+	// TODO : Overflow. Do we really need this? IDK.
 	if((len + m_index_rx) >= (UART_BUFFER_SIZE - 1))
 	{
 		return;

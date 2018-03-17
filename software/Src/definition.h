@@ -28,7 +28,7 @@ typedef enum {
 	ALGORITHM_FOC_SENSORLESS,
 	
 	ALGORITHM_MAX,
-} CONTROL_ALGORITHM;
+} MOTOR_CONTROL_ALGORITHM;
 
 typedef enum {
 	DIRECTION_FORWARD,
@@ -41,15 +41,22 @@ typedef enum {
 	MOTOR_DRIVER_DRV8323 = 0,
 
 	MOTOR_DRIVER_MAX,
-} MOTOR_DRIVER;
+} MOTOR_DRIVER_LIST;
 
 /* 
  * Structure definitions
  */
 typedef struct {
-	CONTROL_ALGORITHM 		algorithm; 
-	MOTOR_DRIVER			driver;
-	DIRECTION				direction;
+	MOTOR_DRIVER_LIST 	ic;
+
+	bool enable_status;
+	void (*enable)(void*, bool);
+} MOTOR_DRIVER;
+
+typedef struct {
+	MOTOR_DRIVER					driver;
+	MOTOR_CONTROL_ALGORITHM 		algorithm; 
+	DIRECTION						direction;
 } MOTOR;
 
 #endif

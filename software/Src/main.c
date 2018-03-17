@@ -135,13 +135,11 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-		static time timer = 200;
+		static time timer = 0;
 		
-		// if(time_elapsed_now(timer) > 200)
+		if(time_elapsed(timer, time_get()) > 200)
 		{
-			// timer = time_get();
-
-			HAL_Delay(timer);
+			timer = time_get();
 			
 			HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
 			HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
