@@ -102,7 +102,15 @@ PERIFLIB_SOURCES =
 #######################################
 # binaries
 #######################################
-BINPATH = /home/heeyo/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/
+ifeq ($(OS),Windows_NT)
+	BINPATH = D:/Tools/GNU Tools ARM Embedded/7 2017-q4-major/bin
+else
+	UNAME_S :=(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		BINPATH = /home/heeyo/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/
+	endif
+endif
+
 PREFIX = arm-none-eabi-
 CC = $(BINPATH)/$(PREFIX)gcc
 AS = $(BINPATH)/$(PREFIX)gcc -x assembler-with-cpp
