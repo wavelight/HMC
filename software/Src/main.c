@@ -87,7 +87,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* USER CODE BEGIN 0 */
 
-/* USER CODE END 0 */
+/* USER CODE END 0 */ 
 
 /**
   * @brief  The application entry point.
