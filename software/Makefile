@@ -74,14 +74,19 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
-/Src/system_stm32f4xx.c \
+Src/system_stm32f4xx.c \
 Src/stm32f4xx_it.c \
 Src/main.c \
 Src/usb_device.c \
 Src/usbd_cdc_if.c \
 Src/usbd_conf.c \
 Src/stm32f4xx_hal_msp.c \
-Src/usbd_desc.c
+Src/usbd_desc.c	\
+Src/utility/time.c	\
+Src/utility/uart.c	\
+Src/motor/motor.c	\
+Src/motor/algorithm/motor_trapezoidal.c	\
+Src/motor/driver/drv8323/drv8323.c	\
 
 # ASM sources
 ASM_SOURCES =  \
@@ -143,7 +148,13 @@ C_INCLUDES =  \
 -IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc \
 -IMiddlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
--IDrivers/CMSIS/Include
+-IDrivers/CMSIS/Include	\
+-ISrc/	\
+-ISrc/utility	\
+-ISrc/motor	\
+-ISrc/motor/algorithm	\
+-ISrc/motor/driver	\
+-ISrc/motor/driver/drv8323	\
 
 
 # compile gcc flags

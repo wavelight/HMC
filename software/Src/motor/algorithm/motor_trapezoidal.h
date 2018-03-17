@@ -1,0 +1,4 @@
+#ifndef _MOTOR_TRAPEZOIDAL_H_
+#define _MOTOR_TRAPEZOIDAL_H_
+
+#endif

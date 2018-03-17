@@ -52,7 +52,8 @@
 #include "usb_device.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "time.h"
+#include "motor.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -124,9 +125,6 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-	char tx[64] = {0};
-	sprintf(tx, "%s", "HELLO WORLD\r");
-	uint32_t time = 200;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -137,14 +135,19 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-		// I can't even see the device on the portlist.
-		CDC_Transmit_FS((uint8_t *)tx, strlen(tx));
+		static time timer = 200;
+		
+		// if(time_elapsed_now(timer) > 200)
+		{
+			// timer = time_get();
 
-		HAL_Delay(time);
-		HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
-		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		HAL_GPIO_TogglePin(LED_ORANGE_GPIO_Port, LED_ORANGE_Pin);
-		HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+			HAL_Delay(timer);
+			
+			HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
+			HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+			HAL_GPIO_TogglePin(LED_ORANGE_GPIO_Port, LED_ORANGE_Pin);
+			HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+		}		
 	}
   /* USER CODE END 3 */
 
