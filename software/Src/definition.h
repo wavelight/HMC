@@ -16,9 +16,8 @@
 #define UART_USB_PACKET_START_2 		(0x34)
 #define UART_USB_PACKET_START_NULL 		(0xFFFF)
 
-// TODO : Change this to CR LF
-#define UART_USB_PACKET_END_1 			(0x12)
-#define UART_USB_PACKET_END_2 			(0x34)
+#define UART_USB_PACKET_END_1 			(0x0D)
+#define UART_USB_PACKET_END_2 			(0x0A)
 #define UART_USB_PACKET_END_NULL 		(0xFFFF)
 
 /* 
