@@ -137,7 +137,7 @@ int main(void)
   /* USER CODE BEGIN 3 */
 		static time timer = 0;
 		
-		if(time_elapsed(timer, time_get()) > 200)
+		if(time_elapsed_now(timer) > 100)
 		{
 			timer = time_get();
 			

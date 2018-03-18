@@ -83,7 +83,7 @@ Src/usbd_conf.c \
 Src/stm32f4xx_hal_msp.c \
 Src/usbd_desc.c	\
 Src/utility/time.c	\
-Src/utility/uart.c	\
+Src/utility/uart_usb.c	\
 Src/motor/motor.c	\
 Src/motor/algorithm/motor_trapezoidal.c	\
 Src/motor/driver/drv8323/drv8323.c	\
@@ -105,8 +105,8 @@ PERIFLIB_SOURCES =
 ifeq ($(OS),Windows_NT)
 	BINPATH = D:/Tools/2017-q4-major/bin
 else
-	UNAME_S :=(shell uname -s)
-	ifeq ($(UNAME_S),Linux)
+	UNAME := $(shell uname)
+	ifeq ($(UNAME), Linux)
 		BINPATH = /home/heeyo/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/
 	endif
 endif
