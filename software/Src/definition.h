@@ -2,6 +2,7 @@
 #define _DEFINITION_H_
 
 #include <stdio.h>
+#include <string.h>
 
 /* 
  *  General definitions
@@ -51,9 +52,21 @@ typedef enum {
 	MOTOR_DRIVER_MAX,
 } MOTOR_DRIVER_LIST;
 
+typedef enum {
+	PWM_CH_1	= 0,
+	PWM_CH_1N,
+	PWM_CH_2,
+	PWM_CH_2N,
+	PWM_CH_3,
+	PWM_CH_3N,
+
+	PWM_CH_MAX,
+} PWM_CHANNEL;
+
 /* 
  * Structure definitions
  */
+// Motor driver(DRV8323/etc..)
 typedef struct {
 	MOTOR_DRIVER_LIST 	ic;
 
@@ -61,8 +74,18 @@ typedef struct {
 	void (*enable)(void*, bool);
 } MOTOR_DRIVER;
 
+// Motor PWM 
+typedef struct {
+	bool 		(*set_duty)(void*, PWM_CHANNEL, uint16_t);
+	uint16_t 	(*get_duty)(void*, PWM_CHANNEL);
+
+	bool 		(*set_freq)(void*, PWM_CHANNEL, uint16_t);
+	uint32_t	(*get_freq)(void*, PWM_CHANNEL);
+} MOTOR_PWM;
+
 typedef struct {
 	MOTOR_DRIVER					driver;
+	MOTOR_PWM						pwm;	
 	MOTOR_CONTROL_ALGORITHM 		algorithm; 
 	DIRECTION						direction;
 } MOTOR;

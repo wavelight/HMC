@@ -39,8 +39,6 @@ void uart_usb_recevie(uint8_t * rx, uint16_t len)
 
 uint16_t uart_usb_find_packet_start(void)
 {
-	uint16_t startPoint;
-
 	for(uint16_t i = 0; i < UART_USB_BUFFER_SIZE; i++)
 	{
 		if(m_buf_rx[i] == UART_USB_PACKET_START_1)

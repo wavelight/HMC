@@ -22,8 +22,3 @@ void motor_initalize_driver(MOTOR * motor)
 		break;
 	}
 }
-
-void readFault(MOTOR * motor)
-{
-	
-}

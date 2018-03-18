@@ -54,6 +54,7 @@
 /* USER CODE BEGIN Includes */
 #include "time.h"
 #include "motor.h"
+#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -140,6 +141,8 @@ int main(void)
 		if(time_elapsed_now(timer) > 100)
 		{
 			timer = time_get();
+
+      CDC_Transmit_FS((uint8_t *)"hello\r\n", 5);
 			
 			HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
 			HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
